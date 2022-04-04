@@ -9,11 +9,17 @@ export const EditModal = ({visible, onCancel, value, onSave})=> {
     const [title, setTitle] = useState(value)
 
     const saveHandler = () => {
+        console.log('save')
         if(title.trim().length < 3){
             Alert.alert('Ошибка', `минимальная длинна названия 3 символа. Сейчас ${title.trim().length} символов`)
         }else {
             onSave(title)
         }
+    }
+
+    const cancelHandler = () => {
+        setTitle(value)
+        onCancel()
     }
 
     return (
@@ -29,7 +35,7 @@ export const EditModal = ({visible, onCancel, value, onSave})=> {
                     maxLength={64}
                     />
                 <View style={styles.buttons}>
-                    <AppButton onPress={onCancel} color={THEME.DANGER_COLOR}>
+                    <AppButton onPress={cancelHandler} color={THEME.DANGER_COLOR}>
                     <MaterialIcons name="cancel" size={24} color="#fff" />
                     </AppButton>
 

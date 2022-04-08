@@ -5,7 +5,7 @@ import { AntDesign } from '@expo/vector-icons'
 
 
 
-export const AddToDo = ({onSubmit})=> {
+export const AddTodo = ({onSubmit})=> {
 
     const[value, setValue] = useState('');
 
